@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 5.3//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">
+
+<hibernate-mapping>
+	<class name="com.hcl.pp.model.User" table="pet_user">
+		
+		<id name="userId" column="ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="userName" column="USER_NAME" length="25"></property>
+		<property name="password"  column="USER_PASSWD" length="25"></property>
+	</class>
+</hibernate-mapping>

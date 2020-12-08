@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/petpeer?useSSL=false</property>
+		<property name="connection.username">student</property>
+		<property name="connection.password">student</property>
+		<property name="hbm2ddl.auto">update</property> 
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property><!-- to avoid ambiguity between differenct database vendors -->
+		<property name="hibernate.connection.autocommit">false</property> 
+		<property name="show_sql">true</property><!-- To show the SQL Query commands on the console -->
+<!-- 		<mapping resource="com/hcl/pp/model/User.hbm.xml" /> -->
+        <mapping class="com.hcl.pp.model.User"/>
+	</session-factory>
+</hibernate-configuration>
