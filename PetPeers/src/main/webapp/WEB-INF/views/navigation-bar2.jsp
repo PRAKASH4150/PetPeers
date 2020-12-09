@@ -18,10 +18,21 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark">
- <ul class="navbar-nav ml-auto">
-    <li class="nav-item"><a class="nav-link" href="login">LogIn</a></li>
-     <li class="nav-item"><a class="nav-link" href="front">    RegisterAccount</a></li>
- </ul>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="pets">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="petfront">AddPet</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="mypets">MyPets</a>
+    </li>
+  </ul>
+  
+  <ul class="navbar-nav ml-auto">
+    <li  class="nav-item"><a href="#">LogOut</a></li>
+  </ul>
 </nav>
 <br>
 </body>

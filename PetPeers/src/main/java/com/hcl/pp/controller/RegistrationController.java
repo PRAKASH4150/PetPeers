@@ -1,4 +1,6 @@
 package com.hcl.pp.controller;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,8 @@ public class RegistrationController {
 	
 	@Autowired
 	private UserService userServiceImpl;
-
+    
+	private static final Logger logger= LogManager.getLogger(RegistrationController.class);
 	
 	
 	@RequestMapping("front")
@@ -38,6 +41,7 @@ public class RegistrationController {
 			securityServiceImpl.validateUser(user);	
 			userServiceImpl.doesUserExists(user);
 			userServiceImpl.addUser(user);
+			logger.info("User "+user.getUserName()+" has been registered");
 			return "registered";
 			
 		} catch (ApplicationException e) {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ include file="navigation-bar2.jsp" %>
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
@@ -21,6 +22,9 @@
 <script src="${pageContext.request.contextPath}/resources/scripts/pet_form.js"></script> 
 </head>
 <body>
+    <header>
+     <h1>Add Pet</h1>
+    </header>
     <p id="error">${error}</p>
   <div id="container">
 		<form:form action="addPet" method="post" modelAttribute="petDetails">

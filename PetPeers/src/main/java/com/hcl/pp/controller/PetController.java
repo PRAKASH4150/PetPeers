@@ -34,8 +34,17 @@ public class PetController {
 	public String petHome(Model model)
 	{
 		List<Pet>petsList=petServiceImpl.getAllPets();
-		model.addAttribute("pets",petsList);
-		return "pet_home";
+		if(petsList.size()>0)
+		{
+			model.addAttribute("pets",petsList);
+			return "pet_home";
+		}
+		else
+		{
+			model.addAttribute("message","There are no pets to show");
+			return "pet_home";
+		}
+		
 	}
 	
 	@RequestMapping("petfront")
@@ -72,8 +81,16 @@ public class PetController {
 	{
 		User user=(User)request.getSession().getAttribute("user");
 		List<Pet>myPets=userServiceImpl.getMyPets(user);
-		model.addAttribute("myPets",myPets);
-		return "my_pets";
+		if(myPets.size()>0)
+		{
+			model.addAttribute("myPets",myPets);
+			return "my_pets";
+		}
+		else
+		{
+			model.addAttribute("message","You donot own any pets");
+			return "my_pets";
+		}
 		
 	}
 	
