@@ -12,7 +12,11 @@ import com.hcl.pp.appexception.ApplicationException;
 import com.hcl.pp.model.User;
 import com.hcl.pp.service.UserService;
 import com.hcl.pp.validation.SecurityService;
-
+/**
+ * 
+ * @author MokaSaiSuryaPrakash(51897451)
+ *
+ */
 @Controller
 @RequestMapping("user")
 public class RegistrationController {
@@ -41,6 +45,7 @@ public class RegistrationController {
 			securityServiceImpl.validateUser(user);	
 			userServiceImpl.doesUserExists(user);
 			userServiceImpl.addUser(user);
+			logger.info(user.getUserName()+" entered into addUser method of RegistrationController");
 			logger.info("User "+user.getUserName()+" has been registered");
 			return "registered";
 			

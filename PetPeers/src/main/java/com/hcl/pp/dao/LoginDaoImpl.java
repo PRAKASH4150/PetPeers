@@ -1,5 +1,7 @@
 package com.hcl.pp.dao;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -8,12 +10,19 @@ import org.springframework.stereotype.Repository;
 
 import com.hcl.pp.appexception.ApplicationException;
 import com.hcl.pp.model.User;
+/**
+ * 
+ * @author LakamsaniHanumanSai(51897508)
+ *
+ */
 
 @Repository("loginDaoImpl")
 public class LoginDaoImpl implements LoginDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	private static final Logger logger= LogManager.getLogger(LoginDaoImpl.class);
 
 	@Override
 	public User validateUser(User user) throws ApplicationException {
@@ -26,7 +35,9 @@ public class LoginDaoImpl implements LoginDao {
 		query.setString("username", user.getUserName());
 		query.setString("password", user.getPassword());
 		user_id = (Long) query.uniqueResult();
+		logger.info(user.getUserName()+" entered in to validateUser method of LoginDaoImpl of Dao Layer");
 		if (user_id ==null) {
+			logger.info(user.getUserName()+" is wrong or Password is wrong");
 			throw new ApplicationException("Either User Name or Password or both are invalid");
 		}
 		else
